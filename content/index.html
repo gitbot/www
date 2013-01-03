@@ -1,0 +1,38 @@
+---
+extends: root.j2
+---
+
+--- script
+
+    {{ super() }}
+    <script type="text/javascript" src="/media/js/socket.io/socket.io.min.js"></script>
+.
+
+--- style
+
+   <link rel="stylesheet" type="text/css" href="/media/css/index.css"/>
+
+.
+
+--- app
+
+<script type="text/javascript" src="/media/js/index.js"></script>
+
+.
+
+--- branding
+
+<hgroup><!--
+  --><h1>Gitbot</h1>
+  <h2>Octocat is my best friend.</h2><!--
+--></hgroup>
+
+.
+
+--- html
+
+<div id="container" class="container">
+
+</div>
+
+.

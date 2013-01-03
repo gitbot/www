@@ -1,0 +1,26 @@
+
+size(width = 1em, height = width)
+   width width
+   height height
+
+block(width = 1em, height = width, radius = 0, display = block)
+   size width height
+   display display
+   if radius > 0
+      border-radius radius
+
+inline(width, height = width, radius = 0)
+   block width height radius inline-block
+
+circle(d = 1em)
+   inline d d d
+
+dot(d = 1em, color = red)
+   circle d
+   font #f center d
+   background color
+
+triangle(size = 1em, edge = top)
+   border size solid transparent
+   border-{edge}-color inherit
+   block 0

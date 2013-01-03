@@ -1,0 +1,93 @@
+
+/*
+   Specify dimensions with block function. For example:
+
+   block 500px 300px 10px
+*/
+
+// make element appearable
+appear(speed = medium)
+   absolute -999em 0
+   opacity 0
+   transition opacity speed
+
+   &.is-active
+      opacity 1
+
+// generic box
+box(color = #f)
+   background color
+   padding u
+   shadow u
+
+   .no-boxshadow &
+      border 1px solid #c
+
+
+// generic box with arrow
+tooltip(arrow_edge = bottom, arrow_size = 1em, color = #f)
+   box color
+   position absolute
+   arrow arrow_edge arrow_size color
+
+   // inside trigger element
+   a &
+      padding uh
+
+arrow(edge = bottom, size = .9em, color = #f)
+   &:after
+      font size / 1 color icon_font
+      absolute auto 42%
+      shadow_color = rgba(#0, .15)
+
+      if edge is bottom
+         text-shadow 0 4px 5px shadow_color
+         content '5'
+         top 98%
+
+      if edge is top
+         text-shadow 0 -4px 5px shadow_color
+         content '8'
+         top -1em
+
+// speech bubble arrow
+bubble(color)
+   tooltip color
+
+   &:after
+      icon 6
+
+// overlay mask to fill the whole page
+mask(color = rgba(#0, 0.75))
+   background color
+   fixed 0
+   size 100%
+
+
+
+overlay(color)
+   box color
+   relative auto auto
+   margin 5% auto
+   overflow auto
+
+
+if classify
+   body.is-overlayed
+      overflow hidden
+
+   .box
+      box box_color
+
+   .tooltip
+      tooltip bottom 1.3em box_color
+
+   .bubble
+      bubble box_color
+
+   .mask
+      mask mask_color
+
+   .overlay
+      overlay box_color
+

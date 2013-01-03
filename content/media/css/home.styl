@@ -1,0 +1,87 @@
+#homeContainer
+    #projects
+        display none
+    #notready
+        display block
+    &.ready
+        #projects
+            display block
+        #notready
+            display none
+
+#projects
+    position relative
+    clearfix()
+    clear both
+
+    .header
+        clearfix()
+        font 12px
+
+        h2
+            font 24px #6 normal
+            float left
+            margin-right u
+
+        .projectActions
+            float left
+
+            button
+                button button_color
+
+    ul
+        padding 0
+
+    li
+        list-style-type none
+        display block
+        margin 0
+        padding 12px
+        border-bottom 1px dotted line_color
+        cursor pointer
+        clearfix()
+
+        &:hover
+            background-color box_color
+
+    #projectList
+        ul
+            margin 48px 0
+            width 400px
+
+            .repo
+                float left
+            .actions
+                float right
+
+            button
+                font-size 12px
+                margin 0 6px
+
+    .empty
+        background-color box_color
+        padding 48px
+        margin 24px 0
+        border-radius 12px
+        max-width 400px
+
+#newProjectContainer
+    display none
+    padding 24px
+    background-color white
+    border-radius bottom 12px
+    box-shadow 1px 1px 1px 1px #c
+    position absolute
+    z-index 100
+    width 200px
+
+    .projectActions.is-active &
+        display block
+
+    #repoSelector
+        max-height 200px
+        overflow-y auto
+
+    #repoFilter
+        margin 8px
+        width 160px

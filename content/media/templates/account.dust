@@ -1,0 +1,7 @@
+<div id="navAccount">
+    {?login}
+    <img src="{avatar_url}">
+    <h2>{login}</h2>
+    <a id="logout">Logout</a>
+    {/login}
+</div>

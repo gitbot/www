@@ -1,0 +1,44 @@
+---
+extends: false
+is_processable: true
+---
+@charset "utf-8"
+baseline = 12
+
+blue           = #016682
+lightblue      = lighten(blue, 15)
+ruby           = #cf006e
+red            = #be0000
+green          = #4cbe00
+pink           = #ff57a8
+u              = 8px
+
+classify       = true
+fix_level      = 3
+button_color   = #3
+link_color     = blue
+
+icon_font      = flowplayer
+
+h1, h2, h3, h4, h5, h6
+    margin 0
+    padding 0
+    -webkit-margin-before 0em
+    -webkit-margin-after 0em
+
+@keyframes pulse
+   0%    { opacity 0 }
+   50%   { opacity 1 }
+   100%  { opacity 0 }
+
+@import "facelift/fn/index"
+
+@import "facelift/vars"
+@import "facelift/base/fix"
+@import "facelift/base/normalize"
+
+@import "facelift/module/index"
+
+@import "app"
+@import "login"
+@import "home"

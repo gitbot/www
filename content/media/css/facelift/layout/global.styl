@@ -1,0 +1,113 @@
+
+/*
+   Generic global layout needs
+
+   * Centered, fixed width and responsive
+
+   - Fixed width gives more control AND is responsive
+   - Background colors span whole browser width while content is centered
+   - Footer always on bottom
+   - Sidebar on right (never place it left, the #content is king!)
+
+   - When screen goes smaller
+      -> sidebar to top
+      -> fluid width
+
+   - Nothing more
+*/
+
+
+// bring back CSS joy
+*
+   box-sizing border-box
+
+
+html, body
+   height 100%
+   background bg_color
+
+// font
+html
+   font-family font_family
+   font-size font_size
+
+#container
+   min-height 100%
+   position relative
+
+
+// footer
+#footer
+   position absolute
+   text-align center
+   bottom 0
+   width 100%
+   background #3
+
+
+// inner elements
+#header-inner, #hero-inner, #main-inner, #footer-inner
+   max-width page_width
+   margin 0 auto
+   padding 0 page_margin
+
+
+// header
+#header
+   clearfix()
+   background #3
+   padding 10px 0 15px 0
+
+   a
+      hover #e
+      margin-right u
+
+   #nav
+      float left
+
+   #subnav
+      float right
+
+      a
+         margin 0 0 0 u
+
+
+// hero
+#hero
+   display none
+
+   .hero &
+      display block
+
+
+#main-inner
+   position relative
+
+#content
+   padding-bottom 6em
+
+
+.sidebar
+
+   #content
+      width page_width - nav_width - page_margin
+
+   #sidebar
+      position absolute
+      right 0
+      width nav_width
+
+      a
+         display block
+
+   @media (max-width: 980px)
+      #content
+         width 100%
+
+      #sidebar
+         position static
+         width 100%
+
+         a
+            display inline
+

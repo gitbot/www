@@ -1,0 +1,4 @@
+extends: false
+dust: true
+uses_template: false
+is_processable: false

@@ -1,0 +1,91 @@
+
+/*
+   Common shapes should be classes so they can be extended
+   @extend results to smaller file size than function
+
+   // good
+   .my-module
+      tip()
+
+   // better
+   .my-module
+      @extends .tip
+
+
+   http://learnboost.github.com/stylus/docs/extend.html
+*/
+
+classify          ?= true
+
+// 0, 1 or 2
+fix_level         ?= 0
+
+// defaults
+button-gradient   ?= false
+shadow-input      ?= false
+
+
+font_family    ?= 'myriad pro', 'lucida pro', sans-serif, arial
+font_size      ?= 16px
+
+// spacing
+spacing        ?= 0.6em
+
+/* font */
+basefont       ?= 1em
+
+icon_font      ?= icon
+
+// layout
+page_width     ?= 980px
+nav_width      ?= 200px
+page_margin    ?= 20px
+grid_padding   ?= 15px
+
+// colors
+blue           ?= #049cdb
+darkblue       ?= #0064cd
+green          ?= #46a546
+red            ?= #9d261d
+yellow         ?= #ffc40d
+orange         ?= #f89406
+pink           ?= #c3325f
+purple         ?= #7a43b6
+
+
+bg_color       ?= #fe
+font_color     ?= #3
+link_color     ?= #08C
+button_color   ?= #009
+line_color     ?= #d
+focus_color    ?= #75b9f0
+error_color    ?= #c05
+ok_color       ?= #64b80a
+box_color      ?= #f9
+mask_color     ?= rgba(#0, 0.75)
+
+// is_dark     ?= dark(bg_color)
+
+
+// animation speed
+medium         ?= .4s
+fast           ?= .2s
+slow           ?= .8s
+
+
+
+// helper units for sizing
+u              ?= spacing
+uh             ?= spacing / 2
+u2             ?= spacing * 2
+u3             ?= spacing * 3
+u4             ?= spacing * 4
+u5             ?= spacing * 5
+u6             ?= spacing * 6
+
+// font sizing
+smaller        ?= basefont * 0.9
+small          ?= basefont * 0.7
+larger         ?= basefont * 1.2
+large          ?= basefont * 1.5
+x-large        ?= basefont * 2

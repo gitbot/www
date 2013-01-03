@@ -1,0 +1,25 @@
+<div id="homeContainer">
+    <section id="projects">
+        <div class="header">
+            <h2>Projects</h2>
+            <div class="projectActions">
+                <button id="newProject">+add</button>
+                <div id="newProjectContainer">
+                    <div id="repoLister">
+                        <input id="repoFilter">
+                        <div id="repoSelector">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="projectList">
+        {>projects/}
+        </div>
+    </section>
+    <section id="notready">
+        <span class="message">
+            I am syncing your data from Github. Just a minute.
+        </span>
+    </section>
+</div>

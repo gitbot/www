@@ -1,0 +1,99 @@
+
+
+validator(prefix = '')
+   p = prefix
+   position relative
+
+   // placeholder
+   .{p}placeholder
+      absolute 30% u
+      cursor text
+      color #c
+      white-space nowrap
+      margin 0
+
+
+   // focus
+   &.{p}focus
+      .{p}placeholder
+         color #d
+
+      .{p}title
+         display inline
+
+
+   // filled
+   &.{p}filled
+      .{p}placeholder
+         display none
+
+   // ok
+   &.{p}ok input
+      border-color ok_color
+
+   &.{p}ok:after
+      icon C
+      font u2 green
+      absolute top 22% right 3%
+
+   // error
+   &.{p}error
+      input
+         border-color rgba(error_color,.8)
+         box-shadow none
+
+   // info
+   .{p}info
+      absolute 20% 250px
+      color #7
+
+      > *
+         display none
+         margin 0
+
+      .{p}active
+         display inline
+
+      .{p}error
+         color #c00
+
+
+   // info box below field
+   &.{p}info-below
+      transition margin fast
+
+      &.{p}ok, &.{p}error, &.{p}progress
+         margin-bottom 2em
+
+         .{p}info
+            left u
+            top 115%
+            width 100%
+            text-align left
+
+   // progress
+   &.{p}progress
+      opacity 0.5
+
+      .{p}ok, .{p}title
+         display none
+
+      .{p}progress
+         display block
+
+      input
+         border-color lighten(line_color, 20)
+         cursor wait
+         color #9
+
+
+   // hide title
+   &.{p}ok, &.{p}error, &.{p}progress
+      .{p}title
+         display none
+
+
+
+if classify
+   label
+      validator()

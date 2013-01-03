@@ -1,0 +1,15 @@
+{?projects}
+<ul>
+    {#projects}
+    <li>
+        <span class="repo">{.}</span>
+        <div class="actions">
+            <button class="sync">sync</button>
+            <button class="del">delete</button>
+        </div>
+    </li>
+    {/projects}
+</ul>
+{:else}
+{>empty message="You haven't added any projects yet." /}
+{/projects}

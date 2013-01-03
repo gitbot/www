@@ -1,0 +1,9 @@
+npm-debug.log
+.DS_Store
+node_modules
+\#*.*\#
+*.pyc
+.hyde_deps
+deploy
+*sublime*
+keys

@@ -1,0 +1,9 @@
+{?repos}
+<ul>
+    {#repos}
+    <li data-path="{.}" class="repo">{.}</li>
+    {/repos}
+</ul>
+{:else}
+{>empty message="No repositories found." /}
+{/repos}

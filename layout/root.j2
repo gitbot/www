@@ -1,0 +1,148 @@
+{% set meta, node, page, env = resource.meta, resource.node, resource, site.config -%}
+<!doctype html>
+
+{#
+head
+   style
+   script
+
+body {{body_id}} {{body_class}}
+
+   #top
+
+   #header
+      #branding
+      #nav
+
+   #main
+      #topbar
+
+      #content
+         markdown
+         html
+
+      #sidebar
+
+   #footer
+
+   #bottom
+-#}
+
+<html class="no-js" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+
+    {% block head -%}
+
+    <meta charset="{{ meta.charset }}">
+
+    {# use chrome frame & force latest IE engine -#}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{{ meta.title }}</title>
+    <meta name="description" content="{{ meta.description }}">
+    <meta name="keywords" content="{{ meta.keywords }}">
+    <meta name="author" content="{{ meta.author }}">
+    {% block meta -%}{%- endblock %}
+    {% block favicon %}
+    <link rel="shortcut icon" href="{{ env.site_url }}/favicon.ico" type="image/x-icon" />
+    {% endblock %}
+    {# optimize mobile versions -#}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="{{ env.jquery }}"></script>
+
+    {% block style -%}{%- endblock %}
+
+    {% block script -%}{%- endblock %}
+
+    {%- endblock head %}
+
+</head>
+
+<body id="{{ meta.body_id | default(node.name) }}" class="{{ meta.body_class }}">
+    {% block body -%}
+    <div id="top">{% block top -%}{%- endblock %}</div>
+
+    <div id="wrap">
+        {% block wrap -%}
+
+        <header id="header">
+
+            <div class="headerWrap">
+              {% block header -%}
+              <div id="branding">{% block branding -%}{%- endblock %}</div>
+              <nav id="nav">{% block nav -%}{%- endblock %}</nav>
+              {%- endblock header %}
+            </div>
+
+        </header>
+
+        <div id="main">
+
+            {% block main -%}
+
+            <aside id="topbar">
+
+                {% block topbar -%}{%- endblock %}
+
+            </aside>
+
+            <div id="content">
+
+                {% block content -%}
+
+                {% markdown -%}{% block markdown -%}{%- endblock %}{%- endmarkdown %}
+
+                {% block html -%}{%- endblock %}
+
+                {%- endblock content %}
+
+            </div>
+
+            <aside id="sidebar">
+
+             {% block sidebar -%}{%- endblock %}
+
+            </aside>
+
+            {%- endblock main %}
+
+        </div>
+
+        <footer id="footer">
+
+            {% block footer -%}{%- endblock %}
+
+        </footer>
+
+     {%- endblock wrap %}
+
+    </div>
+
+    <div id="bottom">
+
+        {% block bottom -%}{%- endblock %}
+
+    </div>
+
+    {% block sitejs -%}
+   <script src="{{ media_url('js/index.js') }}"></script>
+   {%- endblock %}
+
+   {% block gajs -%}
+   {% if site.config.mode.startswith('prod') -%}
+   <script>
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', '{{ site.config.analytics.id }}']);
+     _gaq.push(['_trackPageview']);
+   </script>
+   <script src="http://www.google-analytics.com/ga.js"></script>
+   {%- endif %}
+   {%- endblock %}
+
+{%- endblock body %}
+
+</body>
+
+</html>

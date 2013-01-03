@@ -1,0 +1,91 @@
+.container.is-loading
+    opacity 0.5
+    &:before
+        content 'loading...'
+        font-size 24px
+        margin 32px
+        text-align center
+        color gray
+
+.is-refreshing
+    opacity 0.5
+    transition opacity 0.2s
+
+
+body
+   font-family "myriad pro"
+   background #fc
+   color rgba(#0, .7)
+
+.is-loading
+   opacity 0.5
+
+#header
+    color box_color
+    background-color mask_color
+    clearfix()
+    height 44px
+
+
+    h1, h2, a
+      line-height 24px
+      margin-top 18px
+
+    h2
+      color line_color
+
+    .headerWrap
+      width 960px
+      margin 0 auto
+      clearfix()
+
+    #branding
+      float left
+
+      h1, h2
+        float left
+
+    #nav
+      float right
+
+    #navAccount
+      clearfix()
+
+      >*
+        float left
+        margin-right u
+        padding 0
+
+      img
+        margin-bottom -20px
+        size 32px
+
+      a
+        color lighten(link_color, 10)
+
+        &:hover
+          color lighten(link_color, 20)
+
+    h1
+      font 24px bold
+      margin-top 16px
+      margin-right 4px
+
+    h2
+       font 18px normal
+
+    h3
+       font-size basefont
+
+    img
+      width 32px
+      height 32px
+      margin-top 4px
+
+#main
+   width 960px
+   margin 6*u auto
+   transition opacity .2s
+
+   &.is-loading, .home &
+      opacity 0

@@ -1,0 +1,61 @@
+# env.*
+mode: development
+
+# urls
+base_url: /
+media_url: /media
+site_url: http://localhost:8080
+api: http://localhost:8081/
+
+jquery: http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js
+# keys & accounts
+
+# folders
+media_root: media
+deploy_root: deploy/site
+
+# /env.*
+
+meta:
+   nodemeta: meta.yaml
+   title: "Gitbot. Octocat is my best friend."
+   charset: utf-8
+   dust: false
+
+# plugins
+plugins:
+   - hyde.ext.plugins.meta.MetaPlugin
+   - defaults.DustPlugin
+   - hyde.ext.plugins.auto_extend.AutoExtendPlugin
+   - hyde.ext.plugins.blockdown.BlockdownPlugin
+   - hyde.ext.plugins.stylus.StylusPlugin
+   - hyde.ext.plugins.combine.CombinePlugin
+   - hyde.ext.plugins.uglify.UglifyPlugin
+
+ignore:
+  - "*~"
+  - "*.bak"
+  - ".DS_Store"
+  - ".hyde_deps"
+
+stylus:
+    app: ./node_modules/stylus/bin/stylus
+
+markdown:
+   extensions:
+       - attr_list
+       - passthrough
+       - def_list
+       - headerid
+       - sections
+
+blockdown:
+   open_pattern: ^---+\s*([A-Za-z0-9_\-\.]+)\s*$
+   close_pattern: ^\.$
+
+uglify:
+    app: ./node_modules/uglify-js/bin/uglifyjs
+    include_paths: 'media/js/app'
+
+dust:
+  app: ./node_modules/dustjs-linkedin/bin/dustc
