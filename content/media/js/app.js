@@ -532,7 +532,8 @@
             var store = this.store();
             var logout = new Apt.Logout();
             logout.rpc().done(function () {
-                this.user = null;
+                controller.user.clear();
+                controller.user = null;
                 store.remove('authcode');
                 controller.navigate('login');
             });

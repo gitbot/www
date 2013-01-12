@@ -892,6 +892,14 @@
         },
 
         /**
+         * Clears the field value and restores the default.
+         */
+        clear: function() {
+            this._value = this._default;
+            this.isValid = undefined;
+        },
+
+        /**
          * Calls the validator.
          * @return {Promise}
          */
@@ -1240,6 +1248,16 @@
                 data[name] = field.get();
             });
             return data;
+        },
+
+
+        /**
+         * Clears the model and restores default field values.
+         */
+        clear: function() {
+            $.each(this.fields, function (name, field) {
+               field.clear();
+            });
         },
 
         /**
