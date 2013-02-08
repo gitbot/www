@@ -1,5 +1,0 @@
-# overrides
-extends: site.yaml
-deploy_root: deploy/prod
-site_url: http://{data.app_domain}
-api: http://api.{data.app_domain}/
