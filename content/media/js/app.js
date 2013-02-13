@@ -484,7 +484,7 @@
                     controller.socket.disconnect();
                 }
                 var socket = controller.socket = io.connect("{{ site.config.api }}");
-                socket.on("ready", function() {
+                var refreshProjects = function() {
                     var repos = new Apt.Repos();
                     repos.rpc().done(function (data) {
                         controller.user.fields.repos.set(data);
@@ -492,6 +492,11 @@
                         controller.user.trigger('synced');
                         controller.refreshRepos();
                     });
+                }
+                socket.on("ready", function() {
+                    refreshProjects();
+                }).on("projectReady", function() {
+                    refreshProjects();
                 });
                 socket.emit('init', controller.user.fields.login.get());
             };
