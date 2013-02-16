@@ -5,7 +5,8 @@ extends: root.j2
 --- script
 
     {{ super() }}
-    <script type="text/javascript" src="/media/js/socket.io/socket.io.min.js"></script>
+    <script type="text/javascript" 
+        src="{{ site.config.api }}socket.io/socket.io.js"></script>
 .
 
 --- style
