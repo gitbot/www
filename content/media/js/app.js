@@ -495,7 +495,7 @@
                         controller.user.trigger('synced');
                         controller.refreshRepos();
                     });
-                    projects.rpc().done(function(data) {
+                    projects.get().done(function(data) {
                         controller.user.fields.projects.set(data);
                         controller.refreshProjects(true);
                     });
