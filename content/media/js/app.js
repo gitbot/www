@@ -451,9 +451,11 @@
             });
         },
 
-        refreshProjects: function () {
+        refreshProjects: function (skipRepos) {
             this.projectListView.render();
-            this.refreshRepos();
+            if (!skipRepos) {
+                this.refreshRepos();
+            }
         },
 
         refreshRepos: function () {
@@ -485,14 +487,19 @@
                 }
                 var socket = controller.socket = io.connect("{{ site.config.api }}");
                 var refreshProjects = function() {
-                    var repos = new Apt.Repos();
+                    var repos = new Apt.Repos(),
+                        projects = new Apt.Projects();
                     repos.rpc().done(function (data) {
                         controller.user.fields.repos.set(data);
                         controller.user.fields.synced.set(true);
                         controller.user.trigger('synced');
                         controller.refreshRepos();
                     });
-                }
+                    projects.rpc.done(function(data) {
+                        controller.user.fields.projects.set(data);
+                        controller.refreshProjects(true);
+                    });
+                };
                 socket.on("ready", function() {
                     refreshProjects();
                 }).on("projectReady", function() {
