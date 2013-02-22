@@ -500,8 +500,10 @@
                         controller.refreshProjects(true);
                     });
                 };
-                socket.on("projectReady", function() {
+                socket.on("ready", function() {
                     refreshProjects();
+                }).on("projectReady", function() {
+                    refreshProjects(false);
                 });
                 socket.emit('init', controller.user.fields.login.get());
             };
