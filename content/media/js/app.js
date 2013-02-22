@@ -495,14 +495,12 @@
                         controller.user.trigger('synced');
                         controller.refreshRepos();
                     });
-                    projects.rpc.done(function(data) {
+                    projects.rpc().done(function(data) {
                         controller.user.fields.projects.set(data);
                         controller.refreshProjects(true);
                     });
                 };
-                socket.on("ready", function() {
-                    refreshProjects();
-                }).on("projectReady", function() {
+                socket.on("projectReady", function() {
                     refreshProjects();
                 });
                 socket.emit('init', controller.user.fields.login.get());
