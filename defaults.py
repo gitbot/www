@@ -1,4 +1,4 @@
-from hyde.fs import File
+from fswrap import File
 from hyde.plugin import CLTransformer
 import subprocess
 

@@ -44,10 +44,10 @@ stylus:
 markdown:
    extensions:
        - attr_list
-       - passthrough
+       - hydedown.passthrough
        - def_list
        - headerid
-       - sections
+       - hydedown.sections
 
 blockdown:
    open_pattern: ^---+\s*([A-Za-z0-9_\-\.]+)\s*$
